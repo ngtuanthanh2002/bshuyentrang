@@ -33,9 +33,10 @@ export async function POST(request: Request) {
     return NextResponse.json({ status: "ok", savedToSheet: true });
   } catch (error) {
     console.error("[submit]", error);
-    return NextResponse.json(
-      { error: "Không thể ghi vào Google Sheet. Vui lòng gọi hotline trực tiếp." },
-      { status: 502 },
-    );
+    const message =
+      error instanceof Error && error.message.includes("Apps Script")
+        ? error.message
+        : "Không thể ghi vào Google Sheet. Vui lòng gọi hotline trực tiếp.";
+    return NextResponse.json({ error: message }, { status: 502 });
   }
 }

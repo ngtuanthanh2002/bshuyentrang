@@ -18,6 +18,12 @@ function getTargetSheet_() {
   return sheet || spreadsheet.getSheets()[0];
 }
 
+function doGet() {
+  return ContentService.createTextOutput(
+    JSON.stringify({ status: "ok", message: "Form API đang hoạt động. Dùng POST để gửi dữ liệu." }),
+  ).setMimeType(ContentService.MimeType.JSON);
+}
+
 function doPost(e) {
   try {
     var payload = JSON.parse(e.postData.contents);

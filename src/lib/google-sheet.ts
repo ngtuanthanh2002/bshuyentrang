@@ -11,7 +11,7 @@ export const GOOGLE_SHEET_CONFIG = {
   spreadsheetId: "1f_XFORpV59J_CqycfuOPRiV3cLXR4hI7xJDMTqj7GoY",
   /** Web App URL — deploy từ google-apps-script/Code.gs */
   webAppUrl:
-    "https://script.google.com/macros/s/AKfycbyA2qM8qkV75SAogbdCTWLwAr17z3SKRM5A0YCS09c3sYAcGnmVRb5V5kE9cDpoKQU/exec",
+    "https://script.google.com/macros/s/AKfycbw_buzGGB9rTH6u_v5u3c-veMxJ1VoWU5fMXfHhKnmJY8hHGZWOIXHea1dRNnc-17jG/exec",
 } as const;
 
 function getWebAppUrl(): string {
@@ -56,6 +56,12 @@ export async function submitToGoogleSheet(data: RegistrationFormData): Promise<v
     if (json.status === "ok") return;
   } catch (error) {
     if (error instanceof Error && error.message.includes("Không ghi")) throw error;
+  }
+
+  if (response.status === 401 || response.status === 403) {
+    throw new Error(
+      "Apps Script chưa mở quyền truy cập. Vào Triển khai → Sửa → Ai có quyền truy cập: Bất kỳ ai (Anyone).",
+    );
   }
 
   if (!response.ok) {
