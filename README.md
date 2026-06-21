@@ -10,7 +10,6 @@ Landing page Next.js cho BS. Trần Huyền Trang — Chuyên gia Tĩnh mạch &
 │   ├── app/             # Routes, API, SEO
 │   ├── components/      # UI components
 │   ├── lib/             # Content & config
-│   ├── providers/       # React context
 │   └── types/
 ├── next.config.ts
 └── vercel.json
@@ -31,18 +30,16 @@ Form đăng ký ghi vào [Danh sách đăng kí tư vấn](https://docs.google.c
 
 1. Làm theo `google-apps-script/HUONG-DAN-CAI-DAT.md`
 2. Deploy Web App → copy URL
-3. Thêm trên Vercel / `.env.local`:
+3. Thêm trên Vercel / `.env.local` (tuỳ chọn nếu đã dán URL vào `src/lib/google-sheet.ts`):
 
 ```env
 GOOGLE_APPS_SCRIPT_URL=https://script.google.com/macros/s/XXXXX/exec
 ```
 
-**Cách 2 (Service Account):** xem `.env.example` — dùng `GOOGLE_SERVICE_ACCOUNT_EMAIL` + `GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY`.
-
 ## Deploy Vercel
 
 1. Push repo lên GitHub
 2. Import project trên vercel.com
-3. Thêm biến môi trường (tuỳ chọn — đã có fallback trong code):
+3. Thêm biến môi trường (tuỳ chọn):
    - `NEXT_PUBLIC_SITE_URL` = `https://bshuyentrang.vercel.app`
    - `GOOGLE_APPS_SCRIPT_URL` — Web App URL sau khi deploy Apps Script
