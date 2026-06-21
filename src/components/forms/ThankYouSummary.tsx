@@ -21,8 +21,8 @@ export function ThankYouSummary() {
   if (!data) return null;
 
   return (
-    <div className="mt-8 rounded-2xl border border-blue-100 bg-slate-50 p-6 text-left">
-      <p className="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-blue-600">
+    <div className="mt-8 rounded-2xl border border-primary/10 bg-slate-50 p-6 text-left">
+      <p className="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-primary">
         {thankYouContent.summaryTitle}
       </p>
       <div className="space-y-2 text-sm text-slate-700">

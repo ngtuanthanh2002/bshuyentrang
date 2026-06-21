@@ -34,6 +34,7 @@ export const testimonialsContent = {
         '20 năm đứng bục giảng với đôi chân đau mỏi mà cứ nghĩ là "bệnh nghề nghiệp."',
       method: "Sau can thiệp sóng cao tần",
       quote: "Chân nhẹ bẫng. Tôi ước mình biết điều này sớm hơn 20 năm.",
+      quoteHighlights: ["Chân nhẹ bẫng", "20 năm"],
       portrait: "/images/Vuthichaulien.JPG",
       before: "/images/Vuthichaulientruoccanthiep.png",
       after: "/images/vuthichauliensaucanthiep.png",
@@ -44,6 +45,7 @@ export const testimonialsContent = {
       story: "Đứng 8–10 giờ/ngày.",
       method: "Sau can thiệp laser tĩnh mạch hiển lớn hai bên",
       quote: "Hết mỏi nặng, hết phù chân, hết búi giãn.",
+      quoteHighlights: ["Hết mỏi nặng", "hết phù chân", "hết búi giãn"],
       portrait: "/images/buivanNam.png",
       before: "/images/buivannamtruoccanthiep.png",
       after: "/images/buivannamsaucanthiep.jpg",
@@ -55,6 +57,7 @@ export const testimonialsContent = {
       method:
         "Sau 5 năm điều trị nội khoa, chuyển sang bơm keo sinh học (không đau, không cần đi tất sau can thiệp)",
       quote: "Tự tin trở lại với công việc và phong cách của mình.",
+      quoteHighlights: ["Tự tin trở lại", "phong cách của mình"],
       portrait: "/images/nguyenthithuhuong.jpg",
       before: "/images/nguyenthithuhuongtruoccanthiep.JPG",
       after: "/images/nguyenthithuhuongsaucanthiep.jpeg",
@@ -65,15 +68,26 @@ export const testimonialsContent = {
 export const problemContent = {
   label: "Vấn đề & câu chuyện bác sĩ",
   title: "Hầu hết bệnh nhân đến gặp tôi không phải lần đầu tiên họ nhận ra vấn đề.",
+  titleHighlights: ["lần đầu tiên", "nhận ra vấn đề"],
   paragraphs: [
-    'Họ đến sau nhiều tháng — thậm chí nhiều năm — tự xử lý. Đã thử mang vớ y khoa. Đã uống thực phẩm chức năng. Đã chịu đựng vì nghĩ "chắc không nghiêm trọng."',
-    "Nhưng suy giãn tĩnh mạch không tự khỏi. Không chờ bạn sẵn sàng. Mỗi tháng trì hoãn, áp lực trong lòng tĩnh mạch tiếp tục tích lũy.",
-    "Điều tôi thấy nhiều nhất: Không phải bệnh nhân không muốn điều trị — mà họ không biết mình đang ở giai đoạn nào, và liệu có thực sự cần can thiệp hay chưa.",
+    {
+      text: 'Họ đến sau nhiều tháng — thậm chí nhiều năm — tự xử lý. Đã thử mang vớ y khoa. Đã uống thực phẩm chức năng. Đã chịu đựng vì nghĩ "chắc không nghiêm trọng."',
+      highlights: ["nhiều tháng", "nhiều năm", "không nghiêm trọng"],
+    },
+    {
+      text: "Nhưng suy giãn tĩnh mạch không tự khỏi. Không chờ bạn sẵn sàng. Mỗi tháng trì hoãn, áp lực trong lòng tĩnh mạch tiếp tục tích lũy.",
+      highlights: ["suy giãn tĩnh mạch không tự khỏi", "tiếp tục tích lũy"],
+    },
+    {
+      text: "Điều tôi thấy nhiều nhất: Không phải bệnh nhân không muốn điều trị — mà họ không biết mình đang ở giai đoạn nào, và liệu có thực sự cần can thiệp hay chưa.",
+      highlights: ["giai đoạn nào", "can thiệp"],
+    },
   ],
   cases: [
     {
       label: "Bệnh nhân nam · 65 tuổi",
       text: "Đến gặp tôi sau nhiều năm chữa loét chân không khỏi — đã qua da liễu, đông y, phục hồi chức năng, tốn hàng trăm triệu mà vết thương ngày càng nặng hơn. Tình cờ thấy tôi trên mạng, bác đến thử. Sau can thiệp, chân lành, hết đau nhức, hết nặng mỏi.",
+      highlight: "chân lành, hết đau nhức, hết nặng mỏi",
     },
     {
       label: "Bệnh nhân nữ · 70 tuổi",
@@ -83,11 +97,13 @@ export const problemContent = {
   ],
   insight:
     "Cùng triệu chứng, nhưng hai người cần hai hướng xử lý hoàn toàn khác nhau. Đó là lý do mỗi bệnh nhân đến gặp tôi đều được nghe và thăm khám trước — không phải nhận ngay một phác đồ chung.",
+  insightHighlights: ["hai hướng xử lý hoàn toàn khác nhau", "nghe và thăm khám trước"],
 };
 
 export const processContent = {
   label: "Quy trình",
   title: "Từ buổi đầu tiên đến khi bạn thật sự thấy khác biệt",
+  titleHighlights: ["buổi đầu tiên", "khác biệt"],
   steps: [
     {
       num: 1,
@@ -153,6 +169,7 @@ export const faqContent = {
 export const ctaContent = {
   title:
     "Một buổi tư vấn hôm nay — để bạn không còn phải đoán mò về chính sức khỏe của mình.",
+  titleHighlights: ["tư vấn hôm nay", "đoán mò"],
   checks: [
     "Miễn phí hoàn toàn",
     "Bảo mật theo tiêu chuẩn y khoa",

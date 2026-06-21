@@ -15,7 +15,7 @@ export default function ThankYouPage() {
     <div className="flex min-h-screen flex-col bg-white">
       <header className="flex h-16 items-center bg-primary px-5 md:px-8">
         <Link href="/" className="text-sm font-bold text-white">
-          BS. Trần Huyền <span className="text-blue-200">Trang</span>
+          BS. Trần Huyền <span className="text-white/70">Trang</span>
         </Link>
       </header>
 
@@ -57,21 +57,21 @@ export default function ThankYouPage() {
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 rounded-2xl bg-primary p-6 text-white sm:flex-row sm:gap-8">
             <div>
-              <p className="text-xs uppercase tracking-wider text-blue-200/60">
+              <p className="text-xs uppercase tracking-wider text-white/60">
                 Hotline trực tiếp
               </p>
               <p className="text-lg font-bold">{siteConfig.phoneDisplay}</p>
             </div>
             <div className="hidden h-10 w-px bg-white/15 sm:block" />
             <div>
-              <p className="text-xs uppercase tracking-wider text-blue-200/60">
+              <p className="text-xs uppercase tracking-wider text-white/60">
                 Địa chỉ phòng khám
               </p>
               <p className="text-lg font-bold">{siteConfig.address}</p>
             </div>
             <div className="hidden h-10 w-px bg-white/15 sm:block" />
             <div>
-              <p className="text-xs uppercase tracking-wider text-blue-200/60">
+              <p className="text-xs uppercase tracking-wider text-white/60">
                 Lịch làm việc
               </p>
               <p className="text-lg font-bold">{siteConfig.hours}</p>

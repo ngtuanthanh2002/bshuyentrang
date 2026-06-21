@@ -4,6 +4,7 @@ import Image from "next/image";
 import { testimonialsContent } from "@/lib/content";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { AnimatedSection, AnimatedItem } from "@/components/ui/AnimatedSection";
+import { HighlightedText } from "@/components/ui/HighlightedText";
 
 export function TestimonialsSection() {
   return (
@@ -25,7 +26,9 @@ export function TestimonialsSection() {
                     <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.story}</p>
                     <p className="mt-3 text-sm font-medium text-primary">{item.method}</p>
                     <blockquote className="mt-2 border-l-2 border-primary/30 pl-3 text-sm italic leading-relaxed text-slate-700">
-                      &ldquo;{item.quote}&rdquo;
+                      &ldquo;
+                      <HighlightedText text={item.quote} highlights={item.quoteHighlights} />
+                      &rdquo;
                     </blockquote>
                   </div>
                 </div>

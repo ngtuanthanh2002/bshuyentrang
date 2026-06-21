@@ -3,11 +3,12 @@
 :root {
   --background: #f8fafc;
   --foreground: #0f172a;
-  --primary: #0360d9;
-  --primary-dark: #0254c2;
-  --primary-darker: #024aab;
-  --primary-light: #e8f2fd;
-  --primary-50: #f0f7ff;
+  --primary: #132d49;
+  --primary-dark: #0e2236;
+  --primary-darker: #091824;
+  --primary-light: #dce4ec;
+  --primary-50: #eef2f6;
+  --accent: #004dc9;
   --header-height: 4rem;
 }
 
@@ -19,6 +20,7 @@
   --color-primary-darker: var(--primary-darker);
   --color-primary-light: var(--primary-light);
   --color-primary-50: var(--primary-50);
+  --color-accent: var(--accent);
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -87,7 +89,7 @@ textarea {
 }
 
 ::selection {
-  background: rgba(3, 96, 217, 0.15);
+  background: rgba(19, 45, 73, 0.15);
   color: #0f172a;
 }
 

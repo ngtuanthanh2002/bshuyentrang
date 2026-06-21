@@ -8,7 +8,13 @@ export function ProcessSection() {
   return (
     <AnimatedSection id="quy-trinh" className="bg-primary py-16 lg:py-24">
       <div className="container-main">
-        <SectionHeader label={processContent.label} title={processContent.title} theme="dark" align="center" />
+        <SectionHeader
+          label={processContent.label}
+          title={processContent.title}
+          titleHighlights={processContent.titleHighlights}
+          theme="dark"
+          align="center"
+        />
 
         <div className="hidden lg:block">
           <div className="relative mb-10 flex items-center justify-between px-[calc(12.5%-1.25rem)]">
@@ -26,10 +32,10 @@ export function ProcessSection() {
               <AnimatedItem key={step.num} delay={i * 0.06}>
                 <div className="flex h-full flex-col rounded-2xl bg-white/10 p-5 backdrop-blur-sm">
                   {step.tag ? (
-                    <span className="mb-3 inline-flex w-fit rounded-full bg-white/15 px-2.5 py-0.5 text-[0.6875rem] font-semibold text-blue-100">{step.tag}</span>
+                    <span className="mb-3 inline-flex w-fit rounded-full bg-white/15 px-2.5 py-0.5 text-[0.6875rem] font-semibold text-white/85">{step.tag}</span>
                   ) : <span className="mb-3 block h-5" />}
                   <h3 className="text-sm font-bold leading-snug text-white">{step.title}</h3>
-                  <p className="mt-2 flex-1 text-xs leading-relaxed text-blue-100/80">{step.desc}</p>
+                  <p className="mt-2 flex-1 text-xs leading-relaxed text-white/80">{step.desc}</p>
                 </div>
               </AnimatedItem>
             ))}
@@ -47,9 +53,9 @@ export function ProcessSection() {
                 <div className="min-w-0 flex-1 rounded-xl bg-white/10 p-4">
                   <div className="mb-2 flex flex-wrap items-center gap-2">
                     <h3 className="text-sm font-bold text-white">{step.title}</h3>
-                    {step.tag ? <span className="rounded-full bg-white/15 px-2 py-0.5 text-[0.6875rem] font-semibold text-blue-100">{step.tag}</span> : null}
+                    {step.tag ? <span className="rounded-full bg-white/15 px-2 py-0.5 text-[0.6875rem] font-semibold text-white/85">{step.tag}</span> : null}
                   </div>
-                  <p className="text-xs leading-relaxed text-blue-100/80">{step.desc}</p>
+                  <p className="text-xs leading-relaxed text-white/80">{step.desc}</p>
                 </div>
               </div>
             </AnimatedItem>

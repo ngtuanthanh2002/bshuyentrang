@@ -4,33 +4,46 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { heroContent } from "@/lib/content";
 import { siteConfig } from "@/lib/site-config";
+import { CvButton } from "@/components/ui/CvButton";
+import { cn } from "@/lib/utils";
 
-const stats = [
-  { value: "15+", label: "năm chuyên sâu" },
-  { value: "1:1", label: "tư vấn miễn phí" },
-  { value: "Miễn phí", label: "buổi đầu tiên" },
-];
+function DoctorCard({ className }: { className?: string }) {
+  return (
+    <div className={className}>
+      <p className="text-sm font-bold text-slate-900">{heroContent.doctorName}</p>
+      <p className="mt-0.5 text-xs font-medium text-primary">{heroContent.specialty}</p>
+      <ul className="mt-2 space-y-1 border-t border-slate-100 pt-2">
+        {heroContent.credentials.map((line) => (
+          <li key={line} className="text-[0.6875rem] leading-snug text-slate-500 lg:text-xs lg:leading-relaxed">
+            {line}
+          </li>
+        ))}
+      </ul>
+      <CvButton className="mt-3" fullWidth />
+    </div>
+  );
+}
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white pb-6 pt-5 sm:pb-8 sm:pt-6 lg:pb-10 lg:pt-8">
+    <section className="relative overflow-hidden bg-white pb-6 pt-5 sm:pb-8 sm:pt-6 lg:pb-18 lg:pt-8">
       <div className="pointer-events-none absolute -left-32 top-20 h-[28rem] w-[28rem] rounded-full bg-primary-50/70 blur-3xl" />
       <div className="pointer-events-none absolute -right-20 bottom-0 h-80 w-80 rounded-full bg-primary/5 blur-3xl" />
 
-      <div className="container-main relative">
-        <div className="grid items-start gap-5 max-lg:gap-5 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
+      <div className="container-main relative lg:pt-4">
+        <div className="grid gap-5 max-lg:gap-5 lg:grid-cols-[1.08fr_0.92fr] lg:gap-8 xl:gap-10">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45 }}
-            className="order-1 lg:order-1 lg:pr-4"
+            className="order-1 lg:order-1 lg:pl-4 lg:pr-2 xl:pl-8"
           >
-            <h1 className="max-lg:text-[1.3125rem] max-lg:leading-[1.2] text-[clamp(1.375rem,2.6vw,2.125rem)] font-bold leading-[1.15] tracking-tight text-slate-900 lg:text-[clamp(1.5rem,2.8vw,2.25rem)]">
-              {heroContent.headline}{" "}
-              <span className="text-primary">{heroContent.headlineAccent}</span>
+            <h1 className="max-lg:text-[1.3125rem] max-lg:leading-[1.2] text-[clamp(1.375rem,2.6vw,2.125rem)] leading-[1.15] tracking-tight lg:text-[clamp(1.5rem,2.8vw,2.25rem)]">
+              <span className="font-normal text-slate-900">{heroContent.headline}</span>{" "}
+              <span className="font-bold text-accent">{heroContent.headlineAccent}</span>
             </h1>
 
-            <p className="mt-3 max-lg:mt-2.5 max-lg:text-[0.8125rem] max-lg:leading-[1.65] text-sm leading-relaxed text-slate-600 lg:text-[0.9375rem] lg:leading-relaxed">
+            <p className="mt-3 max-lg:mt-2.5 max-lg:text-[0.8125rem] max-lg:leading-[1.65] text-sm leading-relaxed text-slate-600 lg:mt-4 lg:text-[0.9375rem] lg:leading-relaxed">
               {heroContent.subheadline}{" "}
               <span className="text-slate-700">{heroContent.subheadlineExtra}</span>
             </p>
@@ -76,57 +89,31 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.05 }}
-            className="order-2 lg:order-2"
+            className="order-2 lg:order-2 lg:pt-2"
           >
-            <div className="relative mx-auto max-w-[240px] max-lg:max-w-[240px] sm:max-w-[320px] lg:mx-0 lg:max-w-none">
-              <div className="relative aspect-[4/5] w-full max-h-[min(34vh,240px)] max-lg:max-h-[min(34vh,240px)] sm:max-h-[min(44vh,380px)] lg:max-h-[400px]">
-                <div className="absolute inset-[6%] rounded-full bg-gradient-to-br from-primary-50 to-primary/10" />
-                <div className="absolute inset-0">
+            <div className="relative mx-auto w-full max-w-[240px] sm:max-w-[320px] lg:mx-0 lg:max-w-[400px]">
+              <div className="relative mx-auto w-full max-w-[280px] lg:max-w-none">
+                <div className="absolute inset-x-[6%] bottom-[2%] top-[6%] rounded-full bg-gradient-to-br from-primary-50 to-primary/10" />
+                <div className="relative h-[min(34vh,240px)] w-full sm:h-[min(40vh,320px)] lg:h-[min(42vh,420px)]">
                   <Image
                     src={heroContent.doctorImage}
                     alt={heroContent.doctorName}
                     fill
                     priority
                     sizes="(max-width: 1024px) 320px, 400px"
-                    className="object-contain object-bottom drop-shadow-[0_16px_32px_rgba(3,96,217,0.15)]"
+                    className="object-contain object-bottom drop-shadow-[0_16px_32px_rgba(19,45,73,0.15)]"
                   />
                 </div>
               </div>
 
-              <div className="mt-3 max-lg:mt-2.5 rounded-xl border border-slate-100 bg-white p-3.5 shadow-sm lg:hidden">
-                <p className="text-sm font-bold text-slate-900">{heroContent.doctorName}</p>
-                <p className="mt-0.5 text-xs font-medium text-primary">{heroContent.specialty}</p>
-                <ul className="mt-2 space-y-1.5">
-                  {heroContent.credentials.map((line) => (
-                    <li key={line} className="text-xs leading-relaxed text-slate-500">{line}</li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="mt-3 hidden rounded-xl border border-slate-100 bg-white p-3.5 shadow-sm lg:block">
-                <p className="text-sm font-bold text-slate-900">{heroContent.doctorName}</p>
-                <p className="mt-0.5 text-xs font-medium text-primary">{heroContent.specialty}</p>
-                <ul className="mt-2 space-y-1 border-t border-slate-100 pt-2">
-                  {heroContent.credentials.map((line) => (
-                    <li key={line} className="text-[0.6875rem] leading-relaxed text-slate-500">{line}</li>
-                  ))}
-                </ul>
-              </div>
+              <DoctorCard
+                className={cn(
+                  "relative z-10 rounded-xl border border-slate-100 bg-white p-3.5 shadow-sm",
+                  "mt-1 max-lg:mt-2.5 lg:-mt-3 lg:p-3",
+                )}
+              />
             </div>
           </motion.div>
-        </div>
-
-        <div className="relative z-10 mt-5 max-lg:mt-4 sm:mt-6">
-          <div className="grid grid-cols-3 divide-x divide-slate-100 rounded-xl border border-slate-100 bg-white shadow-md shadow-slate-900/5">
-            {stats.map((stat) => (
-              <div key={stat.label} className="max-lg:px-2 max-lg:py-2.5 px-2 py-3 text-center sm:px-6 sm:py-4">
-                <p className="max-lg:text-base text-lg font-bold text-primary sm:text-xl">{stat.value}</p>
-                <p className="mt-0.5 max-lg:text-[0.5625rem] max-lg:leading-tight text-[0.625rem] text-slate-500 sm:text-xs">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>

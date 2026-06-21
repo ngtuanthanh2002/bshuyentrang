@@ -12,7 +12,7 @@ const variants = {
   primary: "bg-primary text-white shadow-md hover:bg-primary-dark",
   secondary: "bg-primary-50 text-primary border border-primary-light hover:bg-primary-light",
   white: "bg-white text-primary shadow-md hover:bg-primary-50",
-  ghost: "bg-transparent text-blue-100 hover:bg-white/10",
+  ghost: "bg-transparent text-white/85 hover:bg-white/10",
   outline: "border border-white/30 text-white hover:bg-white/10",
 };
 

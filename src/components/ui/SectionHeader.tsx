@@ -2,10 +2,12 @@
 
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { HighlightedText } from "@/components/ui/HighlightedText";
 
 type SectionHeaderProps = {
   label?: string;
   title: string;
+  titleHighlights?: string[];
   lead?: string;
   align?: "left" | "center";
   theme?: "light" | "dark";
@@ -15,6 +17,7 @@ type SectionHeaderProps = {
 export function SectionHeader({
   label,
   title,
+  titleHighlights,
   lead,
   align = "left",
   theme = "light",
@@ -35,12 +38,16 @@ export function SectionHeader({
       )}
     >
       {label ? (
-        <span className={cn("mb-2 inline-block text-xs font-semibold uppercase tracking-[0.18em]", isDark ? "text-blue-200" : "text-primary")}>
+        <span className={cn("mb-2 inline-block text-xs font-semibold uppercase tracking-[0.18em]", isDark ? "text-white/70" : "text-primary")}>
           {label}
         </span>
       ) : null}
       <h2 className={cn("text-[clamp(1.375rem,2.8vw,2.125rem)] font-bold leading-snug tracking-tight", isDark ? "text-white" : "text-slate-900")}>
-        {title}
+        <HighlightedText
+          text={title}
+          highlights={titleHighlights}
+          highlightClassName={isDark ? "font-semibold text-white" : "font-semibold text-primary"}
+        />
       </h2>
       {lead ? (
         <p className={cn("mt-3 text-sm leading-relaxed sm:text-base", isDark ? "text-slate-300" : "text-slate-600")}>

@@ -59,7 +59,7 @@ export function SuccessModal({ open, onClose, data }: SuccessModalProps) {
               <h2 id="success-modal-title" className="text-xl font-bold text-white">
                 {formContent.successTitle}
               </h2>
-              <p className="mt-2 text-sm leading-relaxed text-blue-100">
+              <p className="mt-2 text-sm leading-relaxed text-white/85">
                 {formContent.successMessage}
               </p>
             </div>

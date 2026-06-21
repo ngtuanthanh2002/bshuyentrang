@@ -82,20 +82,20 @@ export function RegistrationSection() {
                   }}
                 />
                 <div className="relative">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-blue-200">Đăng ký tư vấn</p>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-white/70">Đăng ký tư vấn</p>
                   <h2 className="mt-2 text-2xl font-bold leading-snug text-white sm:text-3xl">
                     {formContent.modalTitle}
                   </h2>
-                  <p className="mt-3 text-sm leading-relaxed text-blue-100/85">{formContent.modalSubtitle}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-white/85">{formContent.modalSubtitle}</p>
 
                   <div className="mt-8 rounded-2xl bg-white/10 p-5 backdrop-blur-sm">
-                    <p className="text-xs font-medium uppercase tracking-wider text-blue-200">Hotline trực tiếp</p>
-                    <a href={`tel:${siteConfig.phone}`} className="mt-1 block text-2xl font-bold text-white hover:text-blue-100">
+                    <p className="text-xs font-medium uppercase tracking-wider text-white/70">Hotline trực tiếp</p>
+                    <a href={`tel:${siteConfig.phone}`} className="mt-1 block text-2xl font-bold text-white hover:text-white/90">
                       {siteConfig.phoneDisplay}
                     </a>
                   </div>
 
-                  <p className="mt-6 flex items-center gap-2.5 text-sm text-blue-50">
+                  <p className="mt-6 flex items-center gap-2.5 text-sm text-white/85">
                     <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white/20">
                       <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
                     </span>
