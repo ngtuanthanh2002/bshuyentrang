@@ -11,6 +11,7 @@ export const siteConfig = {
   addressFull: "159B Lê Thanh Nghị, Hà Nội",
   hours: "17h các ngày trong tuần · 14–17h chiều thứ 7 tại ABClinic",
   cvPdfUrl: "/pdf/bs_huyentrang.pdf",
+  cvPageUrl: "/ly-lich",
   locale: "vi_VN",
   keywords: [
     "BS Trần Huyền Trang",

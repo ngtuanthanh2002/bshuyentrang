@@ -28,43 +28,31 @@ function Spinner() {
   );
 }
 
-function isMobileViewport() {
-  return window.matchMedia("(max-width: 767px)").matches;
+function shouldOpenInlinePage() {
+  const ua = navigator.userAgent.toLowerCase();
+  const inAppBrowser = /zalo|zaloandroid|zaloios|fbav|fban|instagram|line|micromessenger|twitter/i.test(
+    ua,
+  );
+  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+
+  return isMobile || inAppBrowser;
 }
 
 export function CvButton({ className, variant = "outline", fullWidth = false }: CvButtonProps) {
   const [loading, setLoading] = useState(false);
 
-  async function handleOpen() {
+  function handleOpen() {
     if (loading) return;
 
     setLoading(true);
 
-    try {
-      const response = await fetch(siteConfig.cvPdfUrl);
-      if (!response.ok) throw new Error("CV load failed");
-
-      const blob = await response.blob();
-      const url = URL.createObjectURL(blob);
-
-      if (isMobileViewport()) {
-        window.location.assign(url);
-        return;
-      }
-
-      const newTab = window.open(url, "_blank", "noopener,noreferrer");
-      if (newTab) newTab.opener = null;
-
-      setTimeout(() => URL.revokeObjectURL(url), 60_000);
-    } catch {
-      if (isMobileViewport()) {
-        window.location.assign(siteConfig.cvPdfUrl);
-      } else {
-        window.open(siteConfig.cvPdfUrl, "_blank", "noopener,noreferrer");
-      }
-    } finally {
-      setLoading(false);
+    if (shouldOpenInlinePage()) {
+      window.location.href = siteConfig.cvPageUrl;
+      return;
     }
+
+    window.open(siteConfig.cvPdfUrl, "_blank", "noopener,noreferrer");
+    setLoading(false);
   }
 
   return (
