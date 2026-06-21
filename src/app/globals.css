@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --primary: #0360d9;
+  --primary-dark: #0254c2;
+  --primary-darker: #024aab;
+  --primary-light: #e8f2fd;
+  --primary-50: #f0f7ff;
+  --header-height: 4rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-darker: var(--primary-darker);
+  --color-primary-light: var(--primary-light);
+  --color-primary-50: var(--primary-50);
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --header-height: 6.125rem;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
+}
+
+body {
+  overflow-x: hidden;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.container-main {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 76rem;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .container-main {
+    padding-inline: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-main {
+    padding-inline: 2.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-main {
+    padding-inline: 3rem;
+  }
+}
+
+button,
+[role="button"],
+a,
+select,
+summary {
+  cursor: pointer;
+}
+
+input,
+textarea {
+  cursor: text;
+}
+
+::selection {
+  background: rgba(3, 96, 217, 0.15);
+  color: #0f172a;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
