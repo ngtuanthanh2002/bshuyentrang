@@ -3,7 +3,7 @@ export const siteConfig = {
   title: "BS. Trần Huyền Trang — Chuyên gia Tĩnh mạch & Tim mạch",
   description:
     "Chuyên sâu về bệnh lý tim và mạch máu. Tư vấn 1:1 miễn phí tại PK ABClinic 159B Lê Thanh Nghị, Hà Nội.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://abclinic-web.vercel.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://bshuyentrang.vercel.app",
   phone: "0919911593",
   phoneDisplay: "091 991 1593",
   email: "trangkien07@gmail.com",

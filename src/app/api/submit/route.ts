@@ -22,7 +22,7 @@ export async function POST(request: Request) {
       return NextResponse.json(
         {
           error:
-            "Chưa cấu hình Google Sheet. Deploy Apps Script (google-apps-script/Code.gs) rồi dán Web App URL vào src/lib/google-sheet.ts hoặc .env.local",
+            "Chưa kết nối Google Sheet. Làm 1 lần theo google-apps-script/HUONG-DAN-CAI-DAT.md (deploy Apps Script → dán Web App URL).",
         },
         { status: 503 },
       );
