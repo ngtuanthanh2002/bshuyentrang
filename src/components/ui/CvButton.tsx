@@ -28,17 +28,18 @@ function Spinner() {
   );
 }
 
+function isMobileViewport() {
+  return window.matchMedia("(max-width: 767px)").matches;
+}
+
 export function CvButton({ className, variant = "outline", fullWidth = false }: CvButtonProps) {
   const [loading, setLoading] = useState(false);
 
   async function handleOpen() {
     if (loading) return;
 
-    // Mở tab mới ngay lập tức (trong user gesture) để tránh popup blocker
-    const newTab = window.open("about:blank", "_blank");
-    if (newTab) newTab.opener = null;
-
     setLoading(true);
+
     try {
       const response = await fetch(siteConfig.cvPdfUrl);
       if (!response.ok) throw new Error("CV load failed");
@@ -46,16 +47,18 @@ export function CvButton({ className, variant = "outline", fullWidth = false }: 
       const blob = await response.blob();
       const url = URL.createObjectURL(blob);
 
-      if (newTab) {
-        newTab.location.href = url;
-      } else {
-        window.open(url, "_blank", "noopener,noreferrer");
+      if (isMobileViewport()) {
+        window.location.assign(url);
+        return;
       }
+
+      const newTab = window.open(url, "_blank", "noopener,noreferrer");
+      if (newTab) newTab.opener = null;
 
       setTimeout(() => URL.revokeObjectURL(url), 60_000);
     } catch {
-      if (newTab) {
-        newTab.location.href = siteConfig.cvPdfUrl;
+      if (isMobileViewport()) {
+        window.location.assign(siteConfig.cvPdfUrl);
       } else {
         window.open(siteConfig.cvPdfUrl, "_blank", "noopener,noreferrer");
       }
